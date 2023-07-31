@@ -15,7 +15,7 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return view('register');
+        return view(env('APP_THEME').'.register');
     }
 
     public function registerStore(Request $request)
@@ -35,10 +35,10 @@ class AuthController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('/');
+            return redirect('/dashboard');
         }
         
-        return view('login');
+        return view(env('APP_THEME') . '.login');
     }
 
     public function loginProccess(Request $request)
@@ -51,7 +51,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             request()->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('notif', '<div class="alert alert-danger">Terjadi kesalahan login</div>')->onlyInput('email');
@@ -64,7 +64,7 @@ class AuthController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function resetPassword()
@@ -97,7 +97,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         $data['menu_aktif'] = "dashboard";
-        return view('page.dashboard', $data);
+        return view(env('APP_THEME').'.page.dashboard', $data);
     }
 
     public function themesChange()
