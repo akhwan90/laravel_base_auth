@@ -46,16 +46,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block w-100">Register</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-12 text-center">
+                        <a href="{{ url('/login') }}">Login</a>
                     </div>
                 </div>
             </form>
             
             
-            <a href="{{ url('/login') }}" class="text-center">Login</a>
+            
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
 </div>
 <!-- /.register-box -->
+@endsection

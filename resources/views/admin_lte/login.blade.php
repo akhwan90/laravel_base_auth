@@ -43,12 +43,19 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <div class="row mt-3">
+                    <div class="col-lg-12 text-center">
+                        <a href="{{ url('/register') }}" class="text-center">Pendaftaran Akun</a>
+                    </div>
+                </div>
             </form>
             
             
-            <a href="{{ url('/register') }}" class="text-center">Pendaftaran Akun</a>
+            
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
 </div>
 <!-- /.register-box -->
+
+@endsection

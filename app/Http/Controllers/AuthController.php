@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function front()
+    {
+        if (Auth::check()) {
+            return redirect('/');
+        }
+
+        return view(env('APP_THEME') . '.register');
+    }
+
     public function register()
     {
         if (Auth::check()) {
